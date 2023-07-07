@@ -33,4 +33,68 @@ public class Url {
     @Column(nullable = true)
     private String password;
 
+    public Url(String hash, String url) {
+        this.hash = hash;
+        this.url = url;
+    }
+
+    public Url(String hash, String url, String password) {
+        this.hash = hash;
+        this.url = url;
+        this.password = password;
+    }
+
+    public Url() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getHash() {
+        return hash;
+    }
+
+    public void setHash(String hash) {
+        this.hash = hash;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "Url{" +
+            "id=" + id +
+            ", hash='" + hash + '\'' +
+            ", url='" + url + '\'' +
+            ", created=" + created +
+            ", password='" + password + '\'' +
+            '}';
+    }
 }
