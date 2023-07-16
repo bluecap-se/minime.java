@@ -17,6 +17,20 @@ public class UrlService {
 
     public List<Url> getUrls() {
         return urlRepository.findAll();
-        //return List.of(new Url("abc", "https://google.se"));
+    }
+
+    public void createUrl(Url url) {
+        // Check if hash exists first
+        if (urlRepository.findUrlByHash(url.getHash()).isPresent()) {
+            throw new IllegalStateException("Hash is taken.");
+        }
+        urlRepository.save(url);
+    }
+
+    public void deleteUrl(Long urlId) {
+        if (!urlRepository.existsById(urlId)) {
+            throw new IllegalStateException("Student with id " + urlId + " does not exist.");
+        }
+        urlRepository.deleteById(urlId);
     }
 }

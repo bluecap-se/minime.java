@@ -1,9 +1,7 @@
 package com.minime.app;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,4 +21,13 @@ public class UrlController {
         return urlService.getUrls();
     }
 
+    @PostMapping
+    public void createUrl(@RequestBody Url url) {
+        urlService.createUrl(url);
+    }
+
+    @DeleteMapping(path = "{urlId}")
+    public void deleteUrl(@PathVariable("urlId") Long urlId) {
+        urlService.deleteUrl(urlId);
+    }
 }
