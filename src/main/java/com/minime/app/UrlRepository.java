@@ -8,5 +8,7 @@ import java.util.Optional;
 @Repository
 public interface UrlRepository extends JpaRepository<Url, Long> {
 
+    Optional<Url> findUrlById(Long id);
+
     Optional<Url> findUrlByHash(String hash);
 }

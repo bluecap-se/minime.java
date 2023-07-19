@@ -21,13 +21,24 @@ public class UrlController {
         return urlService.getUrls();
     }
 
-    @PostMapping
-    public void createUrl(@RequestBody Url url) {
-        urlService.createUrl(url);
+    @GetMapping(path = "{id}")
+    public Url getUrl(@PathVariable Long id) {
+        return urlService.getUrl(id);
     }
 
-    @DeleteMapping(path = "{urlId}")
-    public void deleteUrl(@PathVariable("urlId") Long urlId) {
-        urlService.deleteUrl(urlId);
+    @PostMapping
+    public Url createUrl(@RequestBody Url url) {
+        return urlService.createUrl(url);
+    }
+
+    @PutMapping(path = "{id}")
+    public Url updateUrl(@PathVariable Long id,
+                          @RequestBody Url newUrl) {
+        return urlService.updateUrl(id, newUrl);
+    }
+
+    @DeleteMapping(path = "{id}")
+    public void deleteUrl(@PathVariable Long id) {
+        urlService.deleteUrl(id);
     }
 }
