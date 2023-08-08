@@ -26,6 +26,11 @@ public class UrlService {
             .orElseThrow(() -> new UrlNotFoundException(id));
     }
 
+    public Url getUrl(String hash) {
+        return urlRepository.findUrlByHash(hash)
+            .orElseThrow(() -> new UrlNotFoundException(-1L));
+    }
+
     public Url createUrl(Url url) {
         // Check if hash exists first
         if (urlRepository.findUrlByHash(url.getHash()).isPresent()) {
@@ -40,7 +45,7 @@ public class UrlService {
             .orElseThrow(() -> new UrlNotFoundException(id));
 
         String hash = newUrl.getHash();
-        if (hash != null && hash.length() > 0
+        if (hash != null && !hash.isEmpty()
             && !Objects.equals(urlObject.getHash(), hash)) {
             if (urlRepository.findUrlByHash(hash).isPresent()) {
                 throw new IllegalStateException("Hash already exists.");
@@ -49,7 +54,7 @@ public class UrlService {
         }
 
         String url = newUrl.getUrl();
-        if (url != null && url.length() > 0
+        if (url != null && !url.isEmpty()
             && !Objects.equals(urlObject.getUrl(), url)) {
             urlObject.setUrl(url);
         }
