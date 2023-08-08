@@ -13,12 +13,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup Java
-        uses: actions/setup-java@v3
+      - name: Set up Oracle JDK 20
+        uses: oracle-actions/setup-java@v1
         with:
-          java-version: 17
-          distribution: 'adopt'
-          cache: 'maven'
+          website: oracle.com
+          release: 20
 
       - name: Set up Maven
         uses: stCarolas/setup-maven@v4.5
@@ -26,4 +25,4 @@ jobs:
           maven-version: 3.9.4
 
       - name: All the Tests and Coverage check
-        run: mvn clean install
+        run: mvn -X clean install
