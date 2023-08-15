@@ -10,6 +10,8 @@
 
 The last link shortener you'll ever need.
 
+This is a fork of the Minime project in Python: https://github.com/bluecap-se/minime
+
 ## Get started
 
 ### Run with Docker
@@ -18,7 +20,7 @@ Minime can run with [Docker](https://www.docker.com) compose, to set up follow t
 
 ```
 $ git clone git@github.com:bluecap-se/minime.java.git && cd "$_"
-$ make docker-run
+$ make run
 $ open http://127.0.0.1:8000
 ```
 
@@ -27,7 +29,7 @@ $ open http://127.0.0.1:8000
 Run the tests in docker container:
 
 ```
-$ docker exec mini_app make test
+$ make test
 ```
 
 ## License

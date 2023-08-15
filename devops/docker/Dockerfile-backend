@@ -1,0 +1,12 @@
+FROM openjdk:22
+
+WORKDIR /minime
+COPY . /minime
+
+RUN mvn install
+
+ENTRYPOINT ["docker-entrypoint.sh"]
+
+EXPOSE 8000
+
+CMD ["runserver"]
