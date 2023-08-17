@@ -3,10 +3,9 @@ FROM openjdk:22
 WORKDIR /minime
 COPY . /minime
 
-RUN mvn install
-
+COPY devops/docker/docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]
 
-EXPOSE 8000
+EXPOSE 8080
 
 CMD ["runserver"]

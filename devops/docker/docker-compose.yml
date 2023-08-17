@@ -7,7 +7,6 @@ services:
         restart: unless-stopped
         expose:
             - "5432"
-        # Remove ports later
         ports:
             - "5432:5432"
         environment:
@@ -26,6 +25,10 @@ services:
         ports:
             - "8080:8080"
         command: ["runserver"]
+        environment:
+            SPRING_APPLICATION_JSON: '{
+                "spring.datasource.url": "jdbc:postgresql://db:5432/minime"
+            }'
         volumes:
             - ../../:/minime/
         depends_on:

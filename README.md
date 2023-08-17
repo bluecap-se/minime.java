@@ -32,6 +32,15 @@ Run the tests in docker container:
 $ make test
 ```
 
+### Test coverage
+
+*Coming soon*
+
+```
+$ make test-coverage
+$ open htmlcov/index.html
+```
+
 ## License
 
 Published under [MIT License](https://github.com/bluecap-se/minime.java/blob/master/LICENSE).

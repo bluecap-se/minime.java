@@ -3,11 +3,13 @@
 set -eu
 
 if [ "$1" = 'runproduction' ]; then
-	exec java -jar /minime/app-1.0.0.jar
+    /minime/mvnw clean package
+	exec java -jar /minime/target/app-0.0.1.jar
 elif [ "$1" = 'runserver' ]; then
-	exec mvn spring-boot:run
+    /minime/mvnw clean install
+	exec /minime/mvnw spring-boot:run
 elif [ "$1" = 'test' ]; then
-	exec SPRING_CONFIG_NAME=application-test mvn test
+	exec SPRING_CONFIG_NAME=application-test /minime/mvnw test
 fi
 
 exec $@
