@@ -1,6 +1,7 @@
 package com.minime.app;
 
 import jakarta.persistence.*;
+import org.apache.commons.lang3.RandomStringUtils;
 
 import java.util.Date;
 
@@ -33,18 +34,19 @@ public class Url {
     @Column(nullable = true)
     private String password;
 
-    public Url(String hash, String url) {
-        this.hash = hash;
+    public Url(String url) {
+        this.hash = this.generateHash(); // TODO: Check if hash exists
         this.url = url;
     }
 
-    public Url(String hash, String url, String password) {
-        this.hash = hash;
+    public Url(String url, String password) {
+        this.hash = this.generateHash(); // TODO: Check if hash exists
         this.url = url;
         this.password = password;
     }
 
     public Url() {
+        this.hash = this.generateHash(); // TODO: Check if hash exists
     }
 
     public Long getId() {
@@ -85,6 +87,10 @@ public class Url {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String generateHash() {
+        return RandomStringUtils.randomAlphanumeric(6);
     }
 
     @Override
