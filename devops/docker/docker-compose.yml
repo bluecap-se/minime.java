@@ -16,11 +16,22 @@ services:
         volumes:
             - postgres_dev:/var/lib/postgresql/data
 
-    app:
+    frontend:
+        build:
+            context: ../../
+            dockerfile: devops/docker/Dockerfile-frontend
+        container_name: mini_frontend
+        restart: always
+        ports:
+            - "3000:3000"
+        volumes:
+            - ../../frontend/:/minime/
+
+    backend:
         build:
             context: ../../
             dockerfile: devops/docker/Dockerfile-backend
-        container_name: mini_app
+        container_name: mini_backend
         restart: always
         ports:
             - "8080:8080"
@@ -33,6 +44,7 @@ services:
             - ../../:/minime/
         depends_on:
             - db
+            - frontend
 
 volumes:
     postgres_dev:

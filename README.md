@@ -20,7 +20,7 @@ Minime can run with [Docker](https://www.docker.com) compose, to set up follow t
 
 ```
 $ git clone git@github.com:bluecap-se/minime.java.git && cd "$_"
-$ make run
+$ make up
 $ open http://127.0.0.1:8080
 ```
 
