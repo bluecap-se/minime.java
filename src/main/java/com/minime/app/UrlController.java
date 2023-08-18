@@ -26,17 +26,20 @@ public class UrlController {
         return urlService.getUrl(id);
     }
 
+    @CrossOrigin(origins = "*")
     @PostMapping
     public Url createUrl(@RequestBody Url url) {
         return urlService.createUrl(url);
     }
 
+    @CrossOrigin(origins = "*")
     @PutMapping(path = "{id}")
     public Url updateUrl(@PathVariable Long id,
                           @RequestBody Url newUrl) {
         return urlService.updateUrl(id, newUrl);
     }
 
+    @CrossOrigin(origins = "*")
     @DeleteMapping(path = "{id}")
     public void deleteUrl(@PathVariable Long id) {
         urlService.deleteUrl(id);
