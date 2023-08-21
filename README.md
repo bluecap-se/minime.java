@@ -24,6 +24,24 @@ $ make up
 $ open http://127.0.0.1:8080
 ```
 
+## Deployment
+
+Docker images are built and pushed to Docker Hub by Github Actions.
+
+### AWS ECS
+
+Minime can be deployed on AWS ECS using [Terraform](https://www.terraform.io).
+
+```
+$ make infra-init
+```
+
+Then apply the changes with:
+
+```
+$ make infra-apply
+```
+
 ## Run tests
 
 Run the tests in docker container:
@@ -40,6 +58,10 @@ $ make test
 $ make test-coverage
 $ open htmlcov/index.html
 ```
+
+## TODO
+
+- [ ] Add Terraform to Github Actions.
 
 ## License
 

@@ -41,6 +41,35 @@ frontend-build:
 
 
 #
+# INFRASTRUCTURE
+#
+
+.PHONY: infra-init
+infra-init:
+	terraform -chdir=devops/terraform init
+
+.PHONY: infra-format
+infra-format:
+	terraform -chdir=devops/terraform fmt
+
+.PHONY: infra-validate
+infra-validate:
+	terraform -chdir=devops/terraform validate
+
+.PHONY: infra-apply
+infra-apply:
+	terraform -chdir=devops/terraform apply
+
+.PHONY: infra-show
+infra-show:
+	terraform -chdir=devops/terraform show
+
+.PHONY: infra-destroy
+infra-destroy:
+	terraform -chdir=devops/terraform destroy
+
+
+#
 # TEST
 #
 
