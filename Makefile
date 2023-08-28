@@ -75,7 +75,7 @@ infra-destroy:
 
 .PHONY: test
 test:
-	docker run bluecap/minime.java:latest test
+	docker exec -it mini_backend test
 
 .PHONY: test-coverage
 test-coverage:

@@ -46,6 +46,8 @@ public class UrlService {
             urlObject.setUrl(url);
         }
 
+        urlObject.setPassword(newUrl.getPassword());
+
         return urlObject;
     }
 
