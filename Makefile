@@ -75,8 +75,8 @@ infra-destroy:
 
 .PHONY: test
 test:
-	docker exec -it mini_backend test
+	docker exec mini_backend test
 
 .PHONY: test-coverage
 test-coverage:
-	@echo "Coming soon"
+	docker exec mini_backend test-coverage

@@ -10,6 +10,8 @@ elif [ "$1" = 'runserver' ]; then
     exec /minime/mvnw spring-boot:run
 elif [ "$1" = 'test' ]; then
     exec SPRING_CONFIG_NAME=application-test /minime/mvnw test
+elif [ "$1" = 'test-coverage' ]; then
+    exec /minime/mvnw jacoco:report
 fi
 
 exec $@

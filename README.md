@@ -3,6 +3,7 @@
 [![Backend](https://github.com/bluecap-se/minime.java/actions/workflows/backend.yml/badge.svg)](https://github.com/bluecap-se/minime.java/actions/workflows/backend.yml)
 [![Frontend](https://github.com/bluecap-se/minime.java/actions/workflows/frontend.yml/badge.svg)](https://github.com/bluecap-se/minime.java/actions/workflows/frontend.yml)
 ![Status](https://img.shields.io/badge/status-stable-brightgreen.svg)
+![Coverage](https://img.shields.io/badge/coverage-88%25-green.svg)
 ![Java Version](https://img.shields.io/badge/java-20-blue.svg)
 [![Docker pulls](https://img.shields.io/docker/pulls/bluecap/minime.java)](https://hub.docker.com/r/bluecap/minime.java)
 ![Platform](https://img.shields.io/badge/platform-win%20%7C%20lin%20%7C%20osx-lightgrey.svg)
@@ -52,11 +53,9 @@ $ make test
 
 ### Test coverage
 
-*Coming soon*
-
 ```
 $ make test-coverage
-$ open htmlcov/index.html
+$ open target/site/jacoco/index.html
 ```
 
 ## TODO
